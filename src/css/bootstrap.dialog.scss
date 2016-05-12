@@ -1,0 +1,63 @@
+// Kill the scroll on the body
+.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // Remove focus outline from opened modal
+    outline: 0;
+
+    &.__active {
+        background: rgba(0, 0, 0, .5);
+    }
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal-dialog {
+    max-width: 402px;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    // Remove focus outline from opened modal
+    outline: 0;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-title {
+    margin: 0;
+}
+
+.modal-body {
+    padding: 15px;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+
+    .btn + .btn {
+        margin-left: 5px;
+        margin-bottom: 0;
+    }
+}

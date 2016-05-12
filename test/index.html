@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="public/css/bootstrap.dialog.css" />
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="public/js/BootstrapModalDom.js"></script>
+    <script type="text/javascript" src="public/js/modal.js"></script>
+    <script type="text/javascript" src="public/js/dialog.js"></script>
+    <script type="text/javascript">
+        var id = 1;
+
+        function createDialog() {
+            id++;
+
+            var content = '<div>content test ' + id + '</div>';
+            var options = {
+                header: 'header test ' + id,
+                buttons: [
+                    {
+                        title: 'button title test ',
+                        primary: true,
+                        action: function() {
+                            console.log('button is pressed');
+                        }
+                    }
+                ]
+            };
+
+            dialog.open(dialog.init(content, options));
+        }
+    </script>
+</head>
+<body>
+    <div class="page"></div>
+</body>
+</html>
