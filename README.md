@@ -2,6 +2,7 @@
 thing for modal opening
 
 # example
+```
 let options = {
   modalId: 'modalId1',
   dialogClass: 'dialogClass1',
@@ -37,3 +38,4 @@ let options = {
 let $modal = dialog.init('<div>modal content</div>', options)
 dialog.open($modal);
 dialog.close($modal);
+```
