@@ -1,4 +1,4 @@
-.modal-open {
+.__modal-open {
   overflow: hidden; }
 
 .modal {
@@ -13,7 +13,7 @@
   .modal.__active {
     background: rgba(0, 0, 0, 0.5); }
 
-.modal-open .modal {
+.__modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto; }
 

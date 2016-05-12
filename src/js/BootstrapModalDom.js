@@ -77,12 +77,12 @@ class BootstrapModalDom {
             for (let i = 0; i < options.buttons.length; i++) {
                 let buttonConfig = Object.assign({}, this.defaultButtonConfig, options.buttons[i]);
                 let $button = this.tag('button')
-                    .addClass('btn btn-dialog')
+                    .addClass('btn __dialog')
                     .attr('type', 'button')
                     .text(buttonConfig.title);
 
                 if (buttonConfig.primary || i === 0) {
-                    $button.addClass('btn-primary');
+                    $button.addClass('__primary');
                 }
 
                 if (buttonConfig.classes) {

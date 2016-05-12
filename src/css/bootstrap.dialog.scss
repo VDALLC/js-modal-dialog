@@ -1,5 +1,5 @@
 // Kill the scroll on the body
-.modal-open {
+.__modal-open {
     overflow: hidden;
 }
 
@@ -19,7 +19,7 @@
     }
 }
 
-.modal-open .modal {
+.__modal-open .modal {
     overflow-x: hidden;
     overflow-y: auto;
 }
