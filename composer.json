@@ -1,4 +1,10 @@
 {
     "name": "va1tra/vda-modal",
-    "description": "thing for opening modals"
+    "description": "thing for opening modals",
+    "keywords": ["modals"],    
+    "autoload": {
+        "psr-0": { "": "" }
+    },
+    "minimum-stability": "dev",
+    "extra": {}
 }
