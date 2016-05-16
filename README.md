@@ -1,6 +1,12 @@
 # vda-modal
 thing for modal opening
 
+# build
+```
+npm install
+gulp
+```
+
 # example
 ```
 let options = {
