@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <link rel="stylesheet" href="public/css/bootstrap.dialog.css" />
+    <link rel="stylesheet" href="../public/css/bootstrap.dialog.css" />
 
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="public/js/dialog.js"></script>
+    <script type="text/javascript" src="http//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/js/dialog.js"></script>
     <script type="text/javascript">
         var id = 1;
 
@@ -29,11 +29,19 @@
                 ]
             };
 
-            dialog.open(dialog.init(content, options));
+            return dialog.open(dialog.init(content, options));
+        }
+
+        function createDialogs() {
+            for (var i = 0; i < 3; ++i) {
+                createDialog().find('.modal-dialog').css({marginTop: 10 + 200 * i});
+            }
         }
     </script>
 </head>
 <body>
     <div class="page"></div>
+    <button onclick="createDialog()">Create Dialog</button>
+    <button onclick="createDialogs()">Create Dialogs</button>
 </body>
 </html>
