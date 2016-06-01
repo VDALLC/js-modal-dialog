@@ -42,6 +42,7 @@ let modalFactory = function($) {
         defaultOptions: {
             closeByEscapePress: true,
             closeByOverlayClick: true,
+            removeAfterClose: true,
             appendLocation: 'body',
             beforeOpen: ($modal, options) => true,
             afterOpen: ($modal, options) => true,
@@ -145,6 +146,10 @@ let modalFactory = function($) {
                         $('body').trigger('modalAfterClose', options);
 
                         options.afterClose($modal, options);
+
+                        if (options.removeAfterClose) {
+                            $modal.remove();
+                        }
                     };
 
                     let $modalContent = $modal.data().modal.$modalContent;
