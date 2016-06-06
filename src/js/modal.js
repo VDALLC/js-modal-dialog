@@ -153,7 +153,8 @@ let modalFactory = function($) {
                     };
 
                     let $modalContent = $modal.data().modal.$modalContent;
-                    let hasAnimation = $modalContent.css('animationName') !== 'none' && $modalContent.css('animationDuration') !== '0s';
+                    let hasAnimation = ($modalContent.css('animationName') !== 'none' && $modalContent.css('animationDuration') !== '0s')
+                            || ($modal.css('animationName') !== 'none' && $modal.css('animationDuration') !== '0s');
 
                     if (animationEndSupport && hasAnimation) {
                         if (options.beforeClose($modal, options) !== false) {
