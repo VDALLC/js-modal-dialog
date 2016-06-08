@@ -36,6 +36,7 @@ let modalFactory = function($) {
             opened: '__opened',
             closing: '__closing',
             closed: '__closed',
+            activating: '__activating',
             active: '__active',
             bodyModalIsOpened: '__modal-opened'
         },
@@ -164,6 +165,10 @@ let modalFactory = function($) {
                                 })
                                 .removeClass(modal.getModificatorsCssClasses())
                                 .addClass(modal.baseClassNames.closing);
+
+                            modal.queue
+                                .filter((value, index, ar) => index == ar.length - 2)
+                                .forEach((value) => $(value).addClass(modal.baseClassNames.activating));
                         }
                     } else {
                         if (options.beforeClose($modal, options) !== false) {
@@ -180,7 +185,7 @@ let modalFactory = function($) {
                 .forEach((value) => modal.closeById($(value).data().modal.id));
         },
         getModificatorsCssClasses: function() {
-            return `${modal.baseClassNames.opening} ${modal.baseClassNames.opened} ${modal.baseClassNames.closing} ${modal.baseClassNames.closed}`;
+            return `${modal.baseClassNames.opening} ${modal.baseClassNames.opened} ${modal.baseClassNames.closing} ${modal.baseClassNames.closed} ${modal.baseClassNames.activating} `;
         },
         pushToQueue: function($modal) {
             modal.queue
@@ -203,7 +208,9 @@ let modalFactory = function($) {
 
             modal.queue
                 .filter((value, index, ar) => index == ar.length - 1)
-                .forEach((value) => $(value).addClass(modal.baseClassNames.active));
+                .forEach((value) => $(value)
+                .addClass(modal.baseClassNames.active)
+                .removeClass(modal.baseClassNames.activating));
         }
     };
 };
