@@ -1,4 +1,4 @@
-import $ from 'jQuery';
+import $ from 'jquery';
 import modal from 'modal';
 import BootstrapModalDom from 'BootstrapModalDom';
 
