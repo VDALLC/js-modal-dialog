@@ -31,7 +31,7 @@ let modalFactory = function($) {
         animationEndEvent: 'animationend webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend',
         zIndex: 1000,
         baseClassNames: {
-            modal: 'modal',
+            modal: '__modal',
             opening: '__opening',
             opened: '__opened',
             closing: '__closing',
@@ -54,7 +54,7 @@ let modalFactory = function($) {
             options = Object.assign({}, modal.defaultOptions, options);
             options.id = modal.globalId++;
 
-            options.$modal = $(dom).data({modal: options});
+            options.$modal = $(dom).data({modal: options}).addClass(modal.baseClassNames.modal);
             options.$modalOverlay = options.$modal;
             options.$modalContent = options.$modal.find('.modal-dialog').data({modal: options});
 
