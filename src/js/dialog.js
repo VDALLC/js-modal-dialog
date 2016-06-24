@@ -6,13 +6,17 @@ let modalDialogFactory = function($, modal, ModalDom) {
     let dialog = {};
     dialog.modalDom = new ModalDom(dialog);
     dialog.defaultOptions = {
-        focusFirstInput: true
+        focusFirstInput: true,
+        buildDom: true
     };
     dialog.init = function(content, options) {
         options = Object.assign({}, modal.defaultOptions, dialog.defaultOptions, options);
-        let dom = dialog.buildDom(content, options);
+
+        let dom = options.buildDom ? dialog.buildDom(content, options) : $(content);
         let $modal = modal.init(dom, options);
-        $modal.appendTo($(options.appendLocation));
+        if (options.appendLocation) {
+            $modal.appendTo($(options.appendLocation));
+        }
 
         return $modal;
     };
