@@ -56,7 +56,7 @@ let modalFactory = function($) {
 
             options.$modal = $(dom).data({modal: options}).addClass(modal.baseClassNames.modal);
             options.$modalOverlay = options.$modal;
-            options.$modalContent = options.$modal.find('.modal-dialog').data({modal: options});
+            options.$modalContent = options.$modal.find(':first-child').data({modal: options});
 
             if (options.closeByOverlayClick) {
                 options.$modalOverlay.bind('click.modal', function(e) {
