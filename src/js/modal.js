@@ -98,7 +98,7 @@ let modalFactory = function($) {
          * @returns Array
          */
         getAllModals: function() {
-            return $(`.${modal.baseClassNames.modal}:not(".${modal.baseClassNames.closing}")`)
+            return $(`.${modal.baseClassNames.modal}:not(".${modal.baseClassNames.closing}"):not(".${modal.baseClassNames.closed}")`)
                 .toArray()
                 .map((modal) => $(modal));
         },
@@ -144,13 +144,13 @@ let modalFactory = function($) {
 
                         modal.removeFromQueue($modal);
 
-                        $('body').trigger('modalAfterClose', options);
-
-                        options.afterClose($modal, options);
-
                         if (options.removeAfterClose) {
                             $modal.remove();
                         }
+                        
+                        $('body').trigger('modalAfterClose', options);
+
+                        options.afterClose($modal, options);
                     };
 
                     let $modalContent = $modal.data().modal.$modalContent;
