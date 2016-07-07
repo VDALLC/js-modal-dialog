@@ -4,6 +4,11 @@ import BootstrapModalDom from 'BootstrapModalDom';
 
 let modalDialogFactory = function($, modal, ModalDom) {
     let dialog = {};
+
+    for (let key in modal) {
+        dialog[key] = modal[key];
+    }
+
     dialog.modalDom = new ModalDom(dialog);
     dialog.defaultOptions = {
         focusFirstInput: true,
@@ -35,9 +40,7 @@ let modalDialogFactory = function($, modal, ModalDom) {
 
         return $modal;
     };
-    dialog.close = function($modal) {
-        modal.close($modal);
-    };
+
     dialog.buildDom = function(content, options) {
         return dialog.modalDom.convert(content, options);
     };
