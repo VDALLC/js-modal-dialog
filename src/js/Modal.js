@@ -27,14 +27,14 @@ class Modal {
             afterClose: ($modal, options) => true
         };
 
-        $(() => {
+        (() => {
             $(window).bind('keyup.modal', (event) => {
                 if (event.keyCode === 27) {
                     return this.closeByEscape();
                 }
             });
 
-            $('body')
+            $(window)
                 .bind('modalOpen.modal', () => {
                     $('body').addClass(this.baseClassNames.bodyModalIsOpened)
                 })
@@ -43,7 +43,7 @@ class Modal {
                         $('body').removeClass(this.baseClassNames.bodyModalIsOpened);
                     }
                 });
-        });
+        })();
     }
     
     init(dom, options) {
